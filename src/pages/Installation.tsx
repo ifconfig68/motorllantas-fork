@@ -1,9 +1,9 @@
       import React from 'react';
       import './Installation.css';
       
-      import installation1 from '../assets/img/instalacion1.jpg';
+      import installation1 from '../assets/img/instalacion1.JPG';
       
-      import installation2 from '../assets/img/instalacion2.jpg';
+      import installation2 from '../assets/img/instalacion2.JPG';
       
       const Installation: React.FC = () => {
         return (
