@@ -1,5 +1,6 @@
 //import React from 'react';
 import './InfoSection.css';
+// @ts-ignore
 import photocar from '../assets/img/photocar.jpg';
 import { Link } from 'react-router-dom';
 
