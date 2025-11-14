@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './PaymentMethods.css';
 import pagosm from '../assets/img/pagosm.png';
 import servicios from '../assets/img/servicios.jpg';

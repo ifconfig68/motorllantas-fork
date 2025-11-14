@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './SecureSection.css';
 import seguro from '../assets/img/seguro.jpg';
 

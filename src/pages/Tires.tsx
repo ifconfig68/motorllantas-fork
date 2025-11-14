@@ -80,6 +80,7 @@ const Tires: React.FC = () => {
       </div>
       <div className="product-grid">
         {filteredAndSortedProducts.map((product, index) => (
+          // @ts-ignore
           <ProductCard
             key={index}
             {...product}

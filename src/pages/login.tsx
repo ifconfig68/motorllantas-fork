@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { loginUser } from "../services/api";
-
+import './Login.css'
 const Login = () => {
   const [form, setForm] = useState({
     email: "",
@@ -22,14 +22,17 @@ const Login = () => {
     }
   };
 
-  return (
-    <div>
-      <h2>Login</h2>
-      <input name="email" placeholder="Email" onChange={handleChange} />
-      <input name="password" type="password" placeholder="Contraseña" onChange={handleChange} />
-      <button onClick={handleSubmit}>Entrar</button>
+   return (
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="main">Inicar Sesion</h2>
+
+        <input name="email" placeholder="Email" onChange={handleChange} />
+        <input name="password" type="password" placeholder="Contraseña" onChange={handleChange} />
+
+        <button onClick={handleSubmit}>Entrar</button>
+      </div>
     </div>
   );
 };
-
 export default Login;

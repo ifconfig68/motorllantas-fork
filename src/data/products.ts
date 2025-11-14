@@ -8,7 +8,7 @@ export const products = [
     shipping: 'Envío Gratis',
     oldPrice: 309758,
     price: 278049,
-    brandLogo: '../assets/img/Nankang-logo.png',
+    brandLogo: 'https://motorllantas.com/wp-content/uploads/2025/03/nankang-5.png',
     discount: 10,
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     shipping: 'Envío Gratis',
     oldPrice: 253650,
     price: 234146,
-    brandLogo: 'https://motorllantas.com/wp-content/uploads/2024/07/Boto-logo.png',
+    brandLogo: 'https://motorllantas.com/wp-content/uploads/2025/03/boto.png',
     discount: 8,
   },
   {
@@ -32,7 +32,7 @@ export const products = [
     shipping: 'Envío Gratis',
     oldPrice: 326060,
     price: 309756,
-    brandLogo: 'https://motorllantas.com/wp-content/uploads/2024/07/Ceat-logo.png',
+    brandLogo: 'https://motorllantas.com/wp-content/uploads/2025/03/ceat.png',
     discount: 5,
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     shipping: 'Envío Gratis',
     oldPrice: 335386,
     price: 303659,
-    brandLogo: '../assets/img/Nankang-logo.png',
+    brandLogo: 'https://motorllantas.com/wp-content/uploads/2025/03/nankang-5.png',
     discount: 9,
   },
   {
@@ -56,7 +56,7 @@ export const products = [
     shipping: 'Envío Gratis',
     oldPrice: 329270,
     price: 307317,
-    brandLogo: '../assets/img/Nankang-logo.png',
+    brandLogo: 'https://motorllantas.com/wp-content/uploads/2025/03/nankang-5.png',
     discount: 7,
   },
 ];

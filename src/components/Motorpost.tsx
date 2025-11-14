@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './Motorpost.css';
 import fondo2 from '../assets/img/fondo2.jpg';
 

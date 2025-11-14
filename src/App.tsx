@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './App.css';
@@ -22,13 +22,14 @@ import ShoppingCart from './pages/ShoppingCart';
 import Checkout from './pages/Checkout';
 import Footer from './components/Footer';
 import { useCart } from './context/CartContext';
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/login";
+import Register from "./pages/register";
 import AdminPage from "./pages/AdminPage";
 import AdminInventory from "./pages/AdminInventory";
 import SuccessPage from "./pages/SuccessPage"
 import FailurePage from "./pages/FailurePage";
 import PendingPage from "./pages/PendingPage";
+import ContactForm from './pages/ContactForm';
 
 const Home = () => (
   <>
@@ -86,6 +87,9 @@ function App() {
               <>
                 <NavLink to="/admin">ADMINISTRADOR</NavLink>
                 <NavLink to="/admin/inventory">GESTIONAR INVENTARIO</NavLink>
+                <NavLink to="/admin/contacts">GESTION DE CONTACTOS</NavLink>
+                
+
                 <button 
                   onClick={handleLogout} 
                   style={{
@@ -126,6 +130,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/inventory" element={<AdminInventory />} />
+            <Route path="/contact-form" element={<ContactForm />} />
+
           </Routes>
         </div>
 

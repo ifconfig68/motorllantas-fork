@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { registerUser } from "../services/api";
+import "./Register.css";
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -19,12 +20,36 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Registro</h2>
-      <input name="name" placeholder="Nombre" onChange={handleChange} />
-      <input name="email" placeholder="Email" onChange={handleChange} />
-      <input name="password" type="password" placeholder="Contraseña" onChange={handleChange} />
-      <button onClick={handleSubmit}>Registrar</button>
+    <div className="main-content register-container">
+      <h2 className="main-title">Registro</h2>
+
+      <div className="register-box">
+        <input
+          name="name"
+          placeholder="Nombre"
+          onChange={handleChange}
+          className="register-input"
+        />
+
+        <input
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          className="register-input"
+        />
+
+        <input
+          name="password"
+          type="password"
+          placeholder="Contraseña"
+          onChange={handleChange}
+          className="register-input"
+        />
+
+        <button onClick={handleSubmit} className="register-button">
+          Registrar
+        </button>
+      </div>
     </div>
   );
 };

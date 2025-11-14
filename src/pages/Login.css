@@ -1,0 +1,88 @@
+/* === CONTENEDOR PRINCIPAL === */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+/* === TARJETA DEL LOGIN === */
+.login-card {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 16px;
+  border: 1px solid #eaeaea;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+}
+
+/* === TÍTULO === */
+.login-card h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* === INPUTS === */
+.login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  font-size: 15px;
+  margin-bottom: 18px;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-card input:focus {
+  border-color: #f9e632;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 230, 50, 0.35);
+}
+
+/* PLACEHOLDER */
+.login-card input::placeholder {
+  color: #999;
+}
+
+/* === BOTÓN === */
+.login-card button {
+  width: 100%;
+  padding: 12px 18px;
+  background-color: #f9e632;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.25s ease;
+}
+
+.login-card button:hover {
+  background-color: #ffe924;
+  transform: translateY(-2px);
+}
+
+.login-card button:active {
+  transform: scale(0.97);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .login-card h2 {
+    font-size: 20px;
+  }
+}
+
+
+.main {
+  color: #000;
+}

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./TireSearch.css";
 import plateIcon from "../assets/img/placa.png";
+// @ts-ignore
 import vehicleData from "../data/vehicleData";
-import { useCart } from "../context/CartContext"; // 👈 ajusta según tu estructura
+import { useCart } from "../context/CartContext";
+import ProductCard from "../components/ProductCard"; // 👈 IMPORTANTE
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -24,7 +26,7 @@ const TireSearch: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [assignedCar, setAssignedCar] = useState<any>(null);
 
-  const { addToCart } = useCart(); // 🛒 hook de carrito
+  const { addToCart } = useCart();
 
   // 🔍 Buscar por marca/año/modelo
   const handleSearch = async (customBrand?: string, customYear?: string, customModel?: string) => {
@@ -50,6 +52,7 @@ const TireSearch: React.FC = () => {
     setLoading(true);
 
     try {
+      // @ts-ignore
       const fetchPromises = tireSizes.map((size) =>
         fetch(`${API_URL}/match?size=${encodeURIComponent(size)}`)
           .then((res) => (res.ok ? res.json() : []))
@@ -61,6 +64,7 @@ const TireSearch: React.FC = () => {
 
       const resultsBySize = await Promise.all(fetchPromises);
       const allResults = Array.from(
+        // @ts-ignore
         new Map(resultsBySize.flat().map((r) => [r.id, r])).values()
       );
 
@@ -73,7 +77,7 @@ const TireSearch: React.FC = () => {
     }
   };
 
-  // 🚗 Buscar por placa (aleatoria)
+  // 🚗 Buscar por placa (random)
   const handlePlateSearch = async () => {
     if (!plate) {
       alert("Ingresa una placa válida");
@@ -101,27 +105,28 @@ const TireSearch: React.FC = () => {
     await handleSearch(randomBrand, randomYear, randomModel);
   };
 
-  // ✅ Agregar producto al carrito
+  // 🛒 Añadir al Carrito
   const handleAddToCart = (product: any) => {
     const productToAdd = {
       id: product.id,
       name: product.title || product.name,
       price: product.regular_price || product.price || 0,
-      image: product.image_link || product.image || product.img || "/default.jpg",
+      image: product.image_link || product.image || "/default.jpg",
       quantity: 1,
     };
 
     addToCart(productToAdd);
-    console.log("🛒 Añadido al carrito:", productToAdd);
   };
 
   return (
     <div className="tire-search-container">
+      {/* HEADER */}
       <div className="header">
         <div className="step-number">2</div>
         <div className="step-title">BUSCA TU LLANTA POR:</div>
       </div>
 
+      {/* OPCIONES */}
       <div className="search-options">
         {searchOptions.map((option) => (
           <div
@@ -155,7 +160,7 @@ const TireSearch: React.FC = () => {
 
           {assignedCar && (
             <p>
-              🔹 Placa <strong>{assignedCar.plate}</strong> asignada temporalmente a{" "}
+              🔹 Placa <strong>{assignedCar.plate}</strong> asignada a{" "}
               <strong>{assignedCar.brand} {assignedCar.model} ({assignedCar.year})</strong>.
             </p>
           )}
@@ -198,29 +203,34 @@ const TireSearch: React.FC = () => {
         </div>
       )}
 
+      {/* LOADING */}
       {loading && <p>🔄 Buscando llantas disponibles...</p>}
 
+      {/* MEDIDAS */}
       {!loading && sizes.length > 0 && (
         <p>
           <strong>Medidas compatibles:</strong> {sizes.join(", ")}
         </p>
       )}
 
-      {/* 🧾 Resultados */}
+      {/* 🧾 RESULTADOS */}
       <div className="results">
         {!loading && results.length > 0 ? (
           results.map((r) => (
-            <div key={r.id} className="tire-card">
-              <img src={r.image_link} alt={r.title} width={100} />
-              <h4>{r.title}</h4>
-              <p><strong>Marca:</strong> {r.brand}</p>
-              <p><strong>Modelo:</strong> {r.model}</p>
-              <p><strong>Tipo:</strong> {r.car_type}</p>
-              <p><strong>Precio:</strong> ${r.regular_price}</p>
-              <p><strong>Stock:</strong> {r.stock}</p>
-              <p><strong>Disponibilidad:</strong> {r.availability}</p>
-              <button onClick={() => handleAddToCart(r)}>🛒 Agregar al carrito</button>
-            </div>
+            <ProductCard
+              key={r.id}
+              imageUrl={r.image_link || "/default.jpg"}
+              title={r.title}
+              grip={r.grip || "A"}
+              rating={r.rating || 4}
+              stock={r.stock}
+              shipping={r.availability === "in_stock" ? "Envío inmediato" : "Bajo pedido"}
+              oldPrice={r.old_price ? `S/ ${r.old_price}` : undefined}
+              price={`S/ ${r.regular_price}`}
+              brandLogo={r.brand_logo || "/default-brand.png"}
+              discount={r.discount || 10}
+              onAddToCart={() => handleAddToCart(r)}
+            />
           ))
         ) : (
           !loading && <p>No se encontraron llantas compatibles.</p>

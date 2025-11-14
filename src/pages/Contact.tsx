@@ -1,42 +1,49 @@
 import './Contact.css';
-import { useState } from "react";
+import { useState } from 'react';
 import { FaPhone, FaClock, FaGlobe, FaEnvelope, FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL; // ejemplo: http://localhost:3000/api
 
 const Contact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
   });
 
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.id]: e.target.value });
+  // Maneja cambios en los inputs
+  // @ts-ignore
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Maneja el envío del formulario
+  // @ts-ignore
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Enviando...");
+    setStatus('Enviando...');
 
     try {
-      const res = await fetch(`${API_URL}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
+      const response = await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Error al enviar");
+      const data = await response.json();
 
-      setStatus("✅ Mensaje enviado con éxito");
-      setForm({ name: "", email: "", subject: "", message: "" });
-    } catch (err) {
-      console.error(err);
-      setStatus("❌ Error al enviar mensaje. Intenta nuevamente.");
+      if (response.ok) {
+        setStatus('¡Mensaje enviado correctamente!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus(`Error: ${data.message || data.details}`);
+      }
+    } catch (error) {
+      console.error("Error enviando formulario:", error);
+      setStatus('Error al enviar el mensaje');
     }
   };
 
@@ -66,23 +73,23 @@ const Contact = () => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Su Nombre: </label>
-            <input type="text" id="name" value={form.name} onChange={handleChange} required />
+            <input type="text" id="name" value={formData.name} onChange={handleChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="email">Su E-mail: </label>
-            <input type="email" id="email" value={form.email} onChange={handleChange} required />
+            <input type="email" id="email" value={formData.email} onChange={handleChange} required />
           </div>
           <div className="form-group">
             <label htmlFor="subject">Asunto: </label>
-            <input type="text" id="subject" value={form.subject} onChange={handleChange} />
+            <input type="text" id="subject" value={formData.subject} onChange={handleChange} />
           </div>
           <div className="form-group">
             <label htmlFor="message">Su Mensaje: </label>
-            <textarea id="message" rows={5} value={form.message} onChange={handleChange}></textarea>
+            <textarea id="message" rows={5} value={formData.message} onChange={handleChange} required></textarea>
           </div>
           <button type="submit" className="submit-btn">Enviar</button>
-          {status && <p>{status}</p>}
         </form>
+        {status && <p className="status-message">{status}</p>}
       </div>
     </div>
   );
