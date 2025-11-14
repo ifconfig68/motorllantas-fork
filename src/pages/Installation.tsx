@@ -1,8 +1,8 @@
       import React from 'react';
       import './Installation.css';
-      
+      // @ts-ignore
       import installation1 from '../assets/img/instalacion1.JPG';
-      
+      // @ts-ignore
       import installation2 from '../assets/img/instalacion2.JPG';
       
       const Installation: React.FC = () => {
