@@ -70,7 +70,7 @@ const Checkout = () => {
 
   const handlePay = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/payments/create_preference', {
+      const response = await fetch('http://13.220.87.246:3000/api/payments/create_preference', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
