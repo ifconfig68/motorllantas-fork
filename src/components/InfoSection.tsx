@@ -1,6 +1,6 @@
 //import React from 'react';
 import './InfoSection.css';
-import photocar from '../assets/img/photocar.jpg';
+import photocar from '../assets/img/photocar.JPG';
 import { Link } from 'react-router-dom';
 
 function InfoSection() {
