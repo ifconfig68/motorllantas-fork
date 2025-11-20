@@ -23,6 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   shipping,
   oldPrice,
   price,
+  //@ts-ignore
   brandLogo,
   discount,
   onAddToCart,
