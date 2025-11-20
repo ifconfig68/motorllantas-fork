@@ -17,8 +17,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({
   imageUrl,
-  title,
-  
+  title,  
   rating,
   stock,
   shipping,
@@ -46,7 +45,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <span className="current-price">{price}</span>
         </div>
         <div className="product-brand">
-          <img src={brandLogo} alt="Brand" />
+          <img src="https://motorllantas.com/wp-content/uploads/2025/03/nankang-5.png" alt="Brand" />
         </div>
         <button className="add-to-cart-button" onClick={onAddToCart}>
           Añadir al carrito

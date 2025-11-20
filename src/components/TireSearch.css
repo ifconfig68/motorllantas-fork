@@ -143,3 +143,63 @@
         font-size: 12px;
     }
   }
+
+
+
+.plate-search {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* <-- ESPACIO ENTRE INPUT Y BOTÓN */
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.plate-search input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-width: 422px;
+}
+
+.plate-search button {
+  padding: 12px;
+  background: #ffeb3b;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.vehicle-search {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.vehicle-search h3 {
+  margin-bottom: 12px;
+}
+
+.selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* ESPACIO ENTRE SELECTS Y EL BOTÓN */
+}
+
+.selectors select {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.selectors button {
+  padding: 12px;
+  background: #ffeb3b;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

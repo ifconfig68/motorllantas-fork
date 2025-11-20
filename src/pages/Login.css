@@ -27,7 +27,7 @@
 
 /* === INPUTS === */
 .login-card input {
-  width: 100%;
+  width: 92%;
   padding: 12px 14px;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -85,4 +85,5 @@
 
 .main {
   color: #000;
+  font-size: 50px;
 }

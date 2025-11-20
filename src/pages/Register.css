@@ -8,7 +8,7 @@
 
 /* Caja estilo "search-container" pero personalizada */
 .register-box {
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   border-radius: 10px;
   padding: 30px;
   max-width: 500px;
@@ -21,7 +21,7 @@
 
 /* Inputs */
 .register-input {
-  width: 100%;
+  width: 93%;
   padding: 12px 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -29,6 +29,7 @@
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s ease;
+  
 }
 
 .register-input:focus {
@@ -51,4 +52,9 @@
 
 .register-button:hover {
   background-color: #f2c400;
+}
+
+.main-title{
+  color: #000;
+  
 }

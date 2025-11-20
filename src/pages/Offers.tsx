@@ -75,7 +75,7 @@ const Offers: React.FC = () => {
       id: product.id,
       name: product.title || product.name,
       price: product.price,
-      image: product.image || product.img || '/default.jpg',
+      image: product.imageUrl || product.image || "/default.jpg",
       quantity: 1
     };
 
@@ -130,6 +130,7 @@ const Offers: React.FC = () => {
             key={index}
             {...product}
             price={formatPrice(product.price)}
+            
             oldPrice={product.oldPrice ? formatPrice(product.oldPrice) : undefined}
             onAddToCart={() => handleAddToCart(product)} // ✅ ahora lo pasa al card
           />

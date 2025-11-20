@@ -40,7 +40,7 @@
 }
 
 .product-card .product-name {
-  font-size: 16px;
+  font-size: 9px;
   font-weight: bold;
   margin: 0;
   color: #222; /* Negro oscuro */
@@ -97,3 +97,5 @@
   max-height: 40px;
   object-fit: contain;
 }
+
+

@@ -21,9 +21,10 @@ const Register = () => {
 
   return (
     <div className="main-content register-container">
-      <h2 className="main-title">Registro</h2>
+      
 
       <div className="register-box">
+        <h2 className="main-title">Registro</h2>
         <input
           name="name"
           placeholder="Nombre"
